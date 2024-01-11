@@ -1,3 +1,5 @@
+#finds the next row, col on the puzzle that's not filled yet 
+#all the empty spaces rep -1
 def empty(puzzle):
     for x in range(9):
         for y in range(9):
@@ -5,8 +7,8 @@ def empty(puzzle):
                 return x, y
     return None, None 
 
+#figures out if the guess at the row/col is a valid guess with True or False
 def is_valid(puzzle, guess, row, col):
-
     rowval = puzzle[row]
     if guess in rowval:
         return False
@@ -28,8 +30,7 @@ def is_valid(puzzle, guess, row, col):
 
     return True
 
-
-
+#using backtracking to solve this sudoku puzzle
 def solver(puzzle):
     row, col = empty(puzzle)
 
@@ -45,7 +46,7 @@ def solver(puzzle):
     return False
 
 
-//example:
+#example:
 example = [
     [5, 3, -1, -1, 7, -1, -1, -1, -1],
     [6, -1, -1, 1, 9, 5, -1, -1, -1],
